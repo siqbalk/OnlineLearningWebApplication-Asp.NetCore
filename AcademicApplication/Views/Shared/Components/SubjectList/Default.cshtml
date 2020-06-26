@@ -1,0 +1,28 @@
+﻿@model IEnumerable<AcademicApplication.ViewModels.SubjectListViewModel>
+
+@{
+    Layout = null;
+}
+
+@if (Model == null)
+{
+    <div class="alert alert-warning">
+        Empty Data Found..
+    </div>
+}
+else
+{
+
+    @foreach (var subject in Model)
+    {
+
+    <li class="control " style="color:black" id="SubjectList">
+        <a asp-area="" asp-controller="CourseList" asp-action="Index" data-id="@subject.SubjectId"   class="js-SubjectList">
+            @subject.SubjectName
+        </a>
+    </li>
+ 
+
+    }
+
+    }

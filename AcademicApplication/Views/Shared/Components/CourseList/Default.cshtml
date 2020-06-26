@@ -1,0 +1,66 @@
+﻿@model IEnumerable<AcademicApplication.ViewModels.CourseListViewModel>
+@{
+    Layout = null;
+
+}
+
+<style>
+    #CourseList {
+        background: #fff;
+        -webkit-box-shadow: 5px 10px 16px -6px #777;
+        -moz-box-shadow: 5px 10px 16px -6px #777;
+        box-shadow: 5px 10px 16px -6px #777;
+        margin-top: 30px;
+        margin-left: 60px;
+    }
+</style>
+
+@if (Model == null)
+{
+    <div class="alert alert-warning">
+        Empty Data Found..
+    </div>
+
+}
+
+else
+
+{
+    @foreach (var course in Model)
+    {
+
+
+        <!-- Card -->
+
+        <div class="mix col-lg-3 col-md-4 col-sm-6" id="CourseList">
+
+            <div class="course-item">
+                <div class="course-thumb set-bg" data-setbg=@course.Image style="height:200px;">
+                    <div class="price" style="background-color:#496B92;"> Rs:@course.Price</div>
+                </div>
+                <div class="course-info">
+                    <div class="course-text">
+                        <h5>@course.Title</h5>
+                        @*<p>@course.ShortDesc</p>*@
+                        <div class="students">@course.Subject</div>
+                    </div>
+                </div>
+            </div>
+
+            @if (!(User.Identity.IsAuthenticated && User.IsInRole("User")))
+            {
+                <a class="btn btn-danger js-CartShow" style="margin-left:50px;color:white;margin-top:-20px;" asp-area="" asp-controller="CourseList" asp-action="CartShow" asp-route-id="@course.CourseId">
+                    <i class="fa fa-cart-plus" style="font-size:20px;color:white"></i>Add To Cart
+                </a>
+            }
+            @if ((User.Identity.IsAuthenticated && User.IsInRole("User")))
+            {
+                <a class="btn btn-danger js-CartShow" style="margin-left:-10px;color:white;margin-top:-10px;" asp-area="" asp-controller="CourseList" asp-action="CartShow" asp-route-id="@course.CourseId">
+                    <i class="fa fa-cart-plus" style="font-size:20px;color:white"></i>Add To Cart
+                </a>
+                <a class="btn btn-info js-CartShow" style="margin-left:135px;color:white;margin-top:-67px;" asp-area="" asp-controller="Subscribe" asp-action="Subscribe" asp-route-id="@course.CourseId">Subscribe</a>
+            }
+        </div>
+    }
+
+}

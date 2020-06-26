@@ -1,0 +1,65 @@
+﻿
+@model  AcademicApplication.Areas.Admin.ViewModels.TopicCreateViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<link href="~/css/CourseDetail.css" rel="stylesheet" />
+
+<style>
+    .coursedetail {
+        background: #fff;
+        -webkit-box-shadow: 0 15px 20px -6px #777;
+        -moz-box-shadow: 0 15px 20px -6px #777;
+        box-shadow: 0 15px 20px -6px #777;
+    }
+</style>
+
+<h3 style="margin-top:30px;">Topic Explanation</h3>
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="col-sm-12 col-md-12 col-lg-12 coursedetail">
+    <!-- product -->
+    <div class="product-content product-wrap clearfix product-deatil">
+        <div class="row">
+            <div class="col-md-7 col-xl-12 col-xs-12">
+
+                <h2 class="name">
+                  Topic:@Model.Name
+                    <small style="margin-top:10px;">Course: <a href="javascript:void(0);">@Model.course</a></small>
+                </h2>
+                <hr>
+                <hr>
+                <div>
+                    <ul id="myTab" class="nav nav-pills">
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade" id="specifications">
+                            <br>
+                            <dl class="">
+                                <dt>@Model.ShortDescription</dt>
+                                </dl>
+
+                        </div>
+                        <br>
+                        <strong>@Model.Name</strong>
+                        <p>@Model.Explanation</p>
+
+
+
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <div class="btn-group pull-right">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end product -->
+</div>
+
+

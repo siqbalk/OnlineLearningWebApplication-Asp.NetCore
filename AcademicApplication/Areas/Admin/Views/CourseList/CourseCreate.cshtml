@@ -1,0 +1,91 @@
+﻿@model AcademicApplication.Areas.Admin.ViewModels.CourseCreateViewModel
+
+
+@{
+    ViewData["Title"] = "CourseCreate";
+}
+
+<section class="content-header">
+    <h1>
+        Course Create
+        <small>Form</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Forms</a></li>
+        <li class="active">Course Create</li>
+    </ol>
+</section>
+
+<div class="box box-primary">
+    <!-- /.box-header -->
+    <!-- form start -->
+    <form role="form" asp-area="Admin" asp-controller="CourseList" asp-action="CourseCreate"
+          method="post" id="FormCreate">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger small text-uppercase" })
+
+        <div class="box-body">
+            <div class="form-group">
+                <label asp-for="Title" for="exampleInputEmail1">Enter Course Title</label>
+                <input asp-for="Title" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Title">
+                <span asp-validation-for="Title"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" for="exampleInputEmail1">Enter Course Price In Rupees</label>
+                <input asp-for="Price" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Price">
+                <span asp-validation-for="Price"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Duration" for="exampleInputEmail1">Enter Course Duration in days</label>
+                <input asp-for="Duration" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Duration">
+                <span asp-validation-for="Duration"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ShortDescription" for="exampleInputEmail1">Enter Course ShortDescriptionDescription</label>
+                <textarea asp-for="ShortDescription" type="text" id="Description" class="form-control" placeholder="Description" rows="5"></textarea>
+                <span asp-validation-for="ShortDescription"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="DetailDescription" for="exampleInputEmail1">Enter Course DetailDescription</label>
+                <textarea asp-for="DetailDescription" type="text" id="Description" class="form-control" placeholder="Description" rows="5"></textarea>
+                <span asp-validation-for="DetailDescription"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Created">Adding Date</label>
+                <input asp-for="Created" type="date" name="bday" min="1000-01-01"
+                       max="3000-12-31" class="form-control">
+                <span asp-validation-for="Created"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SubjectId" class="col-form-label">Subject</label>
+                <select asp-for="SubjectId" class="form-control" asp-items="Model.Subjects">
+                    <option>Select From List</option>
+                </select>
+                <span asp-validation-for="SubjectId" class="text-danger small text-uppercase"></span>
+            </div>
+
+
+            <div class="form-group">
+                <input asp-for="IsFeatured" type="checkbox" class="checkbox checkbox-inline" id="IsFeatured" />
+                <label asp-for="IsFeatured" class="col-form-label" for="IsFeatured">It is a featured course!</label>
+                <span asp-validation-for="IsFeatured" class="text-danger small text-uppercase"></span>
+            </div>
+        </div>
+        <!-- /.box-body -->
+
+        <div class="box-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-danger">Reset</button>
+        </div>
+    </form>
+</div>
+
+
+
+

@@ -1,0 +1,78 @@
+﻿
+@model IEnumerable<AcademicApplication.ViewModels.CartListDetailViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3 style="margin-top:30px;">CartList</h3>
+
+@if (Model == null)
+{
+    <div class="alert alert-danger">
+        Empty Data Found
+    </div>
+}
+else
+{
+    <table class="table table-hover table-condensed" style="margin-top:30px;">
+        <thead>
+            <tr>
+                <th style="width:50%">Product</th>
+                <th style="width:50%">CartId</th>
+                <th style="width:50%">Course</th>
+                <th style="width:10%">Price</th>
+                <th style="width:10%">Status</th>
+                <th style="width:10%">AppUser</th>
+                <th style="width:10%">Action</th>
+            </tr>
+        </thead>
+        @foreach (var cart in Model)
+        {
+
+
+            <tbody>
+                <tr>
+                    <td data-th="Product">
+                        <div class="row">
+                            @*<div class="col-sm-2 hidden-xs" style="height:100px;width:300px;"><img src="~/img/courses/3.jpg" alt="..." class="img-responsive" /></div>*@
+                            <div class="col-sm-10">
+                                <h4 class="nomargin">@cart.Course</h4>
+                                <p>@cart.Course</p>
+                            </div>
+                        </div>
+                    </td>
+
+                    <td data-th="Price">@cart.CartId</td>
+                    <td data-th="Subtotal" class="text-center">@cart.Course</td>
+                    <td data-th="Subtotal" class="text-center">@cart.Price</td>
+                    <td data-th="Subtotal" class="text-center">@cart.Status</td>
+                    <td data-th="Subtotal" class="text-center">@cart.Appuser</td>
+                    <td class="actions" data-th="">
+                        <a asp-area="" asp-controller="Cart" asp-action="DeleteCart" asp-route-id="@cart.CartId" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a>
+                    </td>
+                    @if (cart.Status == "Active")
+                    {
+                        <td><a asp-area="" asp-controller="Payment" asp-action="Index" asp-route-id="@cart.CartId" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+                    }
+                    else
+                    {
+                        <td><a href="#" class="btn btn-danger btn-block">Sold</a></td>
+                    }
+
+                </tr>
+            </tbody>
+
+
+
+
+        }
+        <tfoot>
+            <tr>
+                <td><a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+                <td colspan="2" class="hidden-xs"></td>
+
+
+            </tr>
+        </tfoot>
+    </table>
+}

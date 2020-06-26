@@ -1,0 +1,74 @@
+﻿@model IEnumerable<AcademicApplication.Areas.Admin.ViewModels.CourseCartListViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<section class="content-header">
+    <h1>
+        CoursesList
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Tables</a></li>
+        <li class="active">Data tables</li>
+    </ol>
+</section>
+
+<div class="box-body">
+    <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+        <div class="row"><div class="col-sm-6"><div class="dataTables_length" id="example1_length"><label>Show <select name="example1_length" aria-controls="example1" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div></div><div class="col-sm-6"><div id="example1_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="example1"></label></div></div></div><div class="row">
+            <div class="col-sm-12">
+                @if (Model == null)
+                {
+                    <div class="alert alert-warning">
+                        Empty Data Found..
+                    </div>
+                }
+                else
+                {
+                    <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info" style="margin-top:25px;">
+                        <thead>
+                            <tr role="row">
+                                <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 181px;">Cart Id</th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 222px;">Course</th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 198px;">Price</th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 154px;">User</th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 154px;">Status</th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 112px;">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var cart in Model)
+                            {
+
+
+                                <tr role="row" class="odd">
+                                    <td class="sorting_1">@cart.CartId</td>
+                                    <td>@cart.CourseName</td>
+                                    <td>@cart.CoursePrice</td>
+                                    <td>@cart.User</td>
+                                    <td>@cart.CourseStatus</td>
+                                    <td style="margin-left:-100px">
+                                        <a class="btn btn-warning js-update" href="#">
+                                            <i class="fa fa-pencil"></i>
+                                        </a>
+                                        <a class="btn btn-danger js-user-delete" href="#">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                        <a class="btn btn-primary js-userroledetail" href="#">
+                                            <i class="fa fa-list"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+
+                            }
+                        </tbody>
+
+                    </table>
+                }
+
+            </div>
+        </div><div class="row"><div class="col-sm-5"><div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Showing 1 to 25 of 57 entries</div></div><div class="col-sm-7"><div class="dataTables_paginate paging_simple_numbers" id="example1_paginate"><ul class="pagination"><li class="paginate_button previous disabled" id="example1_previous"><a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0">Previous</a></li><li class="paginate_button active"><a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button "><a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0">2</a></li><li class="paginate_button "><a href="#" aria-controls="example1" data-dt-idx="3" tabindex="0">3</a></li><li class="paginate_button next" id="example1_next"><a href="#" aria-controls="example1" data-dt-idx="4" tabindex="0">Next</a></li></ul></div></div></div>
+    </div>
+</div>

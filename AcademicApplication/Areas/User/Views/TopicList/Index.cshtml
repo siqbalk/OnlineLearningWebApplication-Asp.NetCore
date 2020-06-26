@@ -1,0 +1,48 @@
+﻿
+@model IEnumerable<AcademicApplication.Areas.Admin.ViewModels.TopicCreateViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <h3 style="margin-top:30px;">TopicList</h3>
+
+<div class="box-body">
+    <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+        <div class="col-sm-12">
+            @if (Model == null)
+            {
+                <div class="alert alert-warning">
+                    Empty Data Found..
+                </div>
+            }
+            else
+            {
+                <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info" style="margin-top:25px;">
+                    <thead>
+                        <tr role="row">
+                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 222px;"> Name</th>
+                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 222px;">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var topic in Model)
+                        {
+
+
+                            <tr role="row" class="odd">
+                                <td>@topic.Name</td>
+                                <td><a asp-area="User" asp-controller="TopicExplanation" asp-action="Index" asp-route-id="@topic.TopicId">    @topic.ShortDescription</a></td>
+                            </tr>
+
+                        }
+                    </tbody>
+
+                </table>
+            }
+
+        </div>
+</div>
+</div>
+
+

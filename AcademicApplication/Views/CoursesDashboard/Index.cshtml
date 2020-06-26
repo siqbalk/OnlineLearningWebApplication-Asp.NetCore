@@ -1,0 +1,136 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="page-info-section set-bg" data-setbg="img/page-bg/1.jpg" style="width: 1346px;margin-left:-120px;">
+    <div class="container">
+        <div class="site-breadcrumb">
+            <a href="#">Home</a>
+            <span>Courses</span>
+        </div>
+    </div>
+</div>
+
+
+<section class="search-section ss-other-page">
+    <div class="container">
+        <div class="search-warp">
+            <div class="section-title text-white">
+                <h2><span>Search your course</span></h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+
+                    <form class="course-search-form">
+                        <input type="text" placeholder="Course">
+                        <input type="text" class="last-m" placeholder="Category">
+                        <button class="site-btn btn-dark">Search Couse</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="course-section spad pb-0">
+    <div class="course-warp">
+
+        <ul class="course-filter controls">
+            @await Component.InvokeAsync("AcademicApplication.ViewComponents.SubjectList")
+        </ul>
+
+        <div class="row course-items-area" id="CourseListDetail">
+            @{
+                int id = 2;
+            }
+            @await Component.InvokeAsync("AcademicApplication.ViewComponents.CourseList", new { id })
+
+        </div>
+    </div>
+</section>
+
+
+
+
+<div id="CourseCartDetailModal" class="modal"></div>
+<div id="CourseDetailModal" class="modal"></div>
+
+
+
+@section Scripts
+{
+
+
+    <script>
+        $(".js-SubjectList").on('click', function (e) {
+            e.preventDefault();
+            var btn = $(this);
+            var Id = btn.attr('data-id');
+             console.log("subject button is working");
+            $.ajax({
+
+                url: btn.attr('href'),
+                type: 'GET',
+                data: { id: Id },
+                success: function (response) {
+                    $("#CourseListDetail").html(response);
+                },
+                error: function () {
+
+                }
+            });
+        });
+
+
+
+
+
+
+        $(".js-CartShow").on("click", function (e) {
+            e.preventDefault();
+            var btn = $(this);
+
+            console.log("cart show button is working");
+
+            $.ajax({
+                url: btn.attr('href'),
+                type: 'GET',
+                success: function (response) {
+                    $("#CourseCartDetailModal").html(response);
+                    $("#CourseCartDetailModal").modal('show');
+                },
+                error: function () {
+
+                }
+            });
+        });
+
+
+
+
+        $(".js-CourseDetail").on("click", function (e) {
+            e.preventDefault();
+            var btn = $(this);
+
+            console.log("CourseDetail button is working");
+
+            $.ajax({
+                url: btn.attr('href'),
+                type: 'GET',
+                success: function (response) {
+                    $("#CourseDetailModal").html(response);
+                    $("#CourseDetailModal").modal('show');
+                },
+                error: function () {
+
+                }
+            });
+        });
+
+
+
+    </script>
+
+}
+

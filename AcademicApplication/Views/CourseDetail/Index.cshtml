@@ -1,0 +1,125 @@
+﻿@model AcademicApplication.ViewModels.CourseListViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<link href="~/css/CourseDetail.css" rel="stylesheet" />
+
+<style>
+    .coursedetail{
+           background: #fff;
+    -webkit-box-shadow: 0 15px 20px -6px #777;
+    -moz-box-shadow: 0 15px 20px -6px #777;
+    box-shadow: 0 15px 20px -6px #777;
+    }
+</style>
+
+<div class="page-info-section set-bg" data-setbg="/img/page-bg/1.jpg" style="width: 1346px;margin-left:-120px;height:170px;margin-top:-20px;">
+    <div class="container">
+        <div class="site-breadcrumb" style="margin-top:-110px;position:absolute">
+            <a href="#">Home</a>
+            <span>Courses</span>
+        </div>
+    </div>
+</div>
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="col-sm-12 col-md-12 col-lg-12 coursedetail">
+    <!-- product -->
+    <div class="product-content product-wrap clearfix product-deatil">
+        <div class="row">
+            <div class="col-md-5 col-sm-12 col-xs-12 ">
+                <div class="product-image">
+                    <div id="myCarousel-2" class="carousel slide">
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel-2" data-slide-to="0" class=""></li>
+                            <li data-target="#myCarousel-2" data-slide-to="1" class="active"></li>
+                            <li data-target="#myCarousel-2" data-slide-to="2" class=""></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <!-- Slide 1 -->
+                            <div class="item active" style="width:350px;height:400px;">
+
+
+                                
+                                <img src="~/img/courses/single.jpg" />
+
+                            </div>
+                            <!-- Slide 2 -->
+                        </div>
+                        <a class="left carousel-control" href="#myCarousel-2" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span> </a>
+                        <a class="right carousel-control" href="#myCarousel-2" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span> </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7 col-sm-12 col-xs-12">
+
+                <h2 class="name">
+                    @Model.Title
+                    <small>Subject: <a href="javascript:void(0);">@Model.Subject</a></small>
+                    <i class="fa fa-star fa-2x text-primary"></i>
+                    <i class="fa fa-star fa-2x text-primary"></i>
+                    <i class="fa fa-star fa-2x text-primary"></i>
+                    <i class="fa fa-star fa-2x text-primary"></i>
+                    <i class="fa fa-star fa-2x text-muted"></i>
+                    <span class="fa fa-2x">(109) Votes</span>
+                    <a href="javascript:void(0);">109 customer reviews</a>
+                </h2>
+                <hr>
+                <h3 class="price-container">
+                   Rs:@Model.Price
+                    <small>*includes tax</small>
+                </h3>
+                <div class="certified">
+                    <ul>
+                        <li><a href="javascript:void(0);">Time:<span>@Model.Duration Days</span></a></li>
+                        <li><a href="javascript:void(0);">Issfetured:<span>@Model.IsFeatured</span></a></li>
+                    </ul>
+                </div>
+                <hr>
+                <div>
+                    <ul id="myTab" class="nav nav-pills">
+                        <li class="active"><a href="#more-information" data-toggle="tab" class="no-margin">Product Description </a></li>
+                    </ul>
+                    <div class="tab-content">
+
+                        <br>
+                        <strong>Description Title</strong>
+                        <p>@Model.Description</p>
+
+                        <div class="tab-pane fade" id="specifications">
+                            <br>
+                            <dl class="">
+                                <dt>Gravina</dt>
+                                <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+                                <dd>Donec id elit non mi porta gravida at eget metus.</dd>
+                                <dd>Eget lacinia odio sem nec elit.</dd>
+
+
+                                <dt>Test lists</dt>
+                                <dd>A description list is perfect for defining terms.</dd>
+
+
+                                <dt>Altra porta</dt>
+                                <dd>Vestibulum id ligula porta felis euismod semper</dd>
+                            </dl>
+                        </div>
+
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <a asp-area="" asp-controller="Cart" asp-action="AddToCart" asp-route-id="@Model.CourseId" class="btn btn-danger btn-lg js-Cart">Add to cart (Rs:@Model.Price)</a>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <div class="btn-group pull-right">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end product -->
+</div>
+

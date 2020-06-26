@@ -1,0 +1,58 @@
+﻿@model AcademicApplication.ViewModels.CourseListViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <link href="~/css/Payment.css" rel="stylesheet" />
+<style>
+    #Payment {
+        background: #fff;
+        -webkit-box-shadow: 0 7px 10px -6px #777;
+        -moz-box-shadow: 0 7px 10px -6px #777;
+        box-shadow: 0 7px 10px -6px #777;
+    }
+</style>
+
+
+
+<div class="page-info-section set-bg" data-setbg="/img/page-bg/1.jpg" style="width: 1346px;margin-left:-120px;height:200px;margin-top:-20px;">
+    <div class="container">
+        <div class="site-breadcrumb" style="margin-top:-70px;position:absolute">
+            <a href="#">Home</a>
+            <span>CartList</span>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="mix col-lg-3 col-md-4 col-sm-6 @Model.Subject"  style="margin-left:240px;margin-top:30px;width:1000px;">
+        <div class="course-item" style="width:600px;" id="Payment">
+            <div class="course-thumb set-bg" data-setbg="/img/courses/3.jpg">
+                <div class="price"> Rs:@Model.Price</div>
+            </div>
+            <div class="course-info">
+                <div class="course-text">
+                    <h5>@Model.Title</h5>
+                    <p>@Model.Description</p>
+                    <div class="students">@Model.Subject</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div style="margin-top:40px;margin-left:480px;width:440px;">
+    <form action="/Payment/Processing" method="POST">
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="pk_test_DC52yPSy28bwAA2xQAmVsVcq006dddp9qZ"
+                data-amount="@ViewBag.PaymentAmount"
+                data-name="[My Company Name]"
+                data-description="10 rubberducks for 1$ each"
+                data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                data-locale="en"
+                data-zip-code="true"
+                data-label="Pay With Card">
+
+        </script>
+    </form>
+</div>

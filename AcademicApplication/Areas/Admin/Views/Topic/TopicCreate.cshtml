@@ -1,0 +1,72 @@
+﻿@model AcademicApplication.Areas.Admin.ViewModels.TopicCreateViewModel
+
+@{
+    ViewData["Title"] = "TopicCreate";
+}
+
+<section class="content-header">
+    <h1>
+        Course Create
+        <small>Form</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Forms</a></li>
+        <li class="active">Course Create</li>
+    </ol>
+</section>
+
+<div class="box box-primary">
+    <!-- /.box-header -->
+    <!-- form start -->
+    <form role="form" asp-area="Admin" asp-controller="Topic" asp-action="TopicCreate"
+          method="post" id="FormCreate">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger small text-uppercase" })
+
+        <div class="box-body">
+            <div class="form-group">
+                <label asp-for="Name" for="exampleInputEmail1">Enter Topic Name</label>
+                <input asp-for="Name" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Title">
+                <span asp-validation-for="Name"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ShortDescription" for="exampleInputEmail1">Enter Course ShortDescriptionDescription</label>
+                <textarea asp-for="ShortDescription" type="text" id="Description" class="form-control" placeholder="Description" rows="3"></textarea>
+                <span asp-validation-for="ShortDescription"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Explanation" for="exampleInputEmail1">Enter Topic Explanation</label>
+                <textarea asp-for="Explanation" type="text" id="Description" class="form-control" placeholder="Description" rows="7"></textarea>
+                <span asp-validation-for="Explanation"></span>
+            </div>
+
+
+
+            <div class="form-group">
+                <label asp-for="Created">Adding Date</label>
+                <input asp-for="Created" type="date" name="bday" min="1000-01-01"
+                       max="3000-12-31" class="form-control">
+                <span asp-validation-for="Created"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CourseId" class="col-form-label">Subject</label>
+                <select asp-for="CourseId" class="form-control" asp-items="Model.Course">
+                    <option>Select From List</option>
+                </select>
+                <span asp-validation-for="CourseId" class="text-danger small text-uppercase"></span>
+            </div>
+        <!-- /.box-body -->
+
+        <div class="box-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-danger">Reset</button>
+        </div>
+    </form>
+</div>
+
+
+

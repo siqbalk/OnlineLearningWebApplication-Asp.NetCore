@@ -1,0 +1,139 @@
+﻿@model AcademicApplication.Areas.User.ViewModels.UserPofileViewModel
+
+@{
+    Layout = null;
+
+}
+<link href="~/css/UserLayout2.css" rel="stylesheet" />
+
+
+<div class="bs-example">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <a href="#" class="navbar-brand">
+            <img src="~/img/authors/2.jpg" class="rounded-circle" style="width:90px;height:90px;margin-top:-25px;margin-left:-30px;" />
+            <h4 style="margin-top:-55px;margin-left:70px;">@Model.FirstName @Model.LastName</h4>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav">
+                <a href="#" class="nav-item nav-link active">UserHome</a>
+                <a asp-area="User" asp-controller="CartList" asp-action="Index" class="nav-item nav-link">CartCourses</a>
+                <a asp-area="User" asp-controller="PaidCourses" asp-action="Index" class="nav-item nav-link">PaidICourses</a>
+                <a asp-area="User" asp-controller="SubsribeCourses" asp-action="Index" class="nav-item nav-link">SubscribedCourses</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Account </a>
+                    <div class="dropdown-menu">
+                        <a asp-area="User" asp-controller="Home" asp-action="Index" class="dropdown-item">Profile</a>
+                        <a href="#" class="dropdown-item">Change Password</a>
+                        <a asp-area="Identity" asp-page="/Account/Manage/Index" class="dropdown-item">Account Setting</a>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar-nav">
+                <a href="#" class="nav-item nav-link">@Model.Email</a>
+            </div>
+        </div>
+    </nav>
+</div>
+
+
+
+
+@*<div class="row profile">
+        <div class="col-md-3" style="margin-left:-130px;margin-top:0px;">
+            <div class="profile-sidebar">
+                <!-- SIDEBAR USERPIC -->
+                <div class="profile-userpic">
+                    <img src="~/img/authors/2.jpg" class="img-responsive" alt="" style="width:130px;height:130px;">
+                </div>
+                <!-- END SIDEBAR USERPIC -->
+                <!-- SIDEBAR USER TITLE -->
+                <div class="profile-usertitle">
+                    <div class="profile-usertitle-name">
+                        @Model.FirstName @Model.LastName
+                    </div>
+                    <div class="profile-usertitle-job">
+                        @Model.role
+                    </div>
+                </div>
+                <!-- END SIDEBAR USER TITLE -->
+                <!-- SIDEBAR BUTTONS -->
+                <div class="profile-userbuttons">
+                    <button type="button" class="btn btn-success btn-sm">Update</button>
+                    <button type="button" class="btn btn-danger btn-sm">SignOut</button>
+                </div>
+                <!-- END SIDEBAR BUTTONS -->
+                <!-- SIDEBAR MENU -->
+                <div class="profile-usermenu">
+                    <ul class="nav">
+                        <li class="active">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-home"></i>
+                                Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="PaidCourses" asp-action="Index">
+                                <i class="glyphicon glyphicon-user"></i>
+                                Paid Product
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="CourseCart" asp-action="Index">
+                                <i class="glyphicon glyphicon-ok"></i>
+                                Cart products
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="glyphicon glyphicon-flag"></i>
+                                Change Password
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END MENU -->
+
+                <div class="portlet light bordered">
+                    <!-- STAT -->
+                    <div class="row list-separated profile-stat">
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="uppercase profile-stat-title"> 37 </div>
+                            <div class="uppercase profile-stat-text"> CartItem </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="uppercase profile-stat-title"> 51 </div>
+                            <div class="uppercase profile-stat-text"> Buy  </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="uppercase profile-stat-title"> 61 </div>
+                            <div class="uppercase profile-stat-text"> Check Item </div>
+                        </div>
+                    </div>
+                    <!-- END STAT -->
+                    <div>
+                        <h4 class="profile-desc-title">About @Model.FirstName @Model.LastName</h4>
+                        <span class="profile-desc-text"> Study Software enginnering From Comsats University Islamabad,Abbotabad </span>
+                        <div class="margin-top-20 profile-desc-link">
+                            <i class="fa fa-globe"></i>
+                            <a href="https://www.apollowebstudio.com">@Model.Email</a>
+                        </div>
+                        <div class="margin-top-20 profile-desc-link">
+                            <i class="fa fa-twitter"></i>
+                            <a href="https://www.twitter.com/jasondavisfl/">@Model.FirstName</a>
+                        </div>
+                        <div class="margin-top-20 profile-desc-link">
+                            <i class="fa fa-facebook"></i>
+                            <a href="https://www.facebook.com/">@Model.LastName</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>*@

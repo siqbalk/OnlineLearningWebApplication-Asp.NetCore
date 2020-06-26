@@ -1,0 +1,45 @@
+﻿@model AcademicApplication.Areas.Admin.ViewModels.DashBoardCountViewModel
+@{
+    Layout = null;
+}
+
+
+<p class="text-center">
+    <strong>Goal Completion</strong>
+</p>
+
+<div class="progress-group">
+    <span class="progress-text">Add Products to Cart</span>
+    <span class="progress-number"><b>@Model.CartCount</b>/200</span>
+
+    <div class="progress sm">
+        <div class="progress-bar progress-bar-aqua" style="width: @Model.CartTarget%"></div>
+    </div>
+</div>
+<!-- /.progress-group -->
+<div class="progress-group">
+    <span class="progress-text">Orders</span>
+    <span class="progress-number"><b>20</b>/300</span>
+
+    <div class="progress sm">
+        <div class="progress-bar progress-bar-red" style="width:@Model.OrderTarget%"></div>
+    </div>
+</div>
+<!-- /.progress-group -->
+<div class="progress-group">
+    <span class="progress-text">Sales</span>
+    <span class="progress-number"><b>15</b>/150</span>
+
+    <div class="progress sm">
+        <div class="progress-bar progress-bar-green" style="width:@Model.SaleTarget%"></div>
+    </div>
+</div>
+<!-- /.progress-group -->
+<div class="progress-group">
+    <span class="progress-text">Send Inquiries</span>
+    <span class="progress-number"><b>250</b>/500</span>
+
+    <div class="progress sm">
+        <div class="progress-bar progress-bar-yellow" style="width: 80%"></div>
+    </div>
+</div>

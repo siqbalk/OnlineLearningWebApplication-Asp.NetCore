@@ -1,0 +1,46 @@
+﻿@model AcademicApplication.Areas.Admin.ViewModels.DashBoardCountViewModel
+
+@{
+    Layout = null;
+}
+<input id='Cartcount' type='hidden' value='@String.Join(",",Model.CartCount)' />
+<input id='Subjectcount' type='hidden' value='@String.Join(",",Model.SubjectCount)' />
+<input id='Usercount' type='hidden' value='@String.Join(",",Model.UserCount)' />
+<input id='Coursecount' type='hidden' value='@String.Join(",",Model.CourseCount)' />
+
+<div class="box-header with-border">
+    <h3 class="box-title">Pie Chart App Report</h3>
+
+    <div class="box-tools pull-right">
+        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+            <i class="fa fa-minus"></i>
+        </button>
+        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+    </div>
+</div>
+<!-- /.box-header -->
+<div class="box-body" style="height:362px;">
+    <div class="row">
+        <div class="col-md-8" style="margin-top:30px;">
+            <div class="chart-responsive">
+                <canvas id="pieChart" height="240" width="270"></canvas>
+            </div>
+            @*chart-responsive*@
+        </div>
+        <!-- /.col -->
+        <div class="col-md-4" style="margin-top:80px;">
+            <ul class="chart-legend clearfix">
+                <li><i class="fa fa-users text-aqua"></i> Users</li>
+                <li><i class="fa fa-book text-blue"></i> Subject</li>
+                <li><i class="fa fa-folder-open text-yellow"></i> Courses</li>
+                <li><i class="fa fa-cart-plus text-green"></i> CartItem</li>
+                <li><i class="fa fa-arrow-circle-o-right text-maroon"></i> Order</li>
+                <li><i class="fa fa-shopping-bag text-orange"></i> Sales</li>
+            </ul>
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</div>
+
+

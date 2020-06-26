@@ -1,0 +1,46 @@
+﻿@model AcademicApplication.ViewModels.CourseListViewModel
+
+@{
+    Layout = null;
+}
+
+@if (Model == null)
+{
+    <div class="alert alert-danger">
+        Empty Data Found
+    </div>
+}
+else
+{
+    <div class="modal-dialog" id="RoleModal" style="width:300px;">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:#4CAF50">
+                <h5 class="modal-title" style="color:white">CourseCart <small>Detail</small></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form asp-area="Admin" asp-controller="Courses" asp-action="_Create"
+                  method="post" id="FormCreate">
+                <div class="modal-body">
+                    <div class="course-info">
+                        <div class="course-text">
+                            <h5>@Model.Title</h5>
+                            <p>@Model.Description</p>
+                            <div class="students">@Model.Subject</div>
+                            <h5>RS:@Model.Price</h5>
+                            <h5>@Model.Duration Days</h5>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a asp-area="" asp-controller="Cart" asp-action="AddToCart" asp-route-id="@Model.CourseId" class="btn btn-danger js-Cart" >Add To Cart</a>
+                        <a  class="btn btn-success js-CourseDetail" asp-area="" asp-controller="CourseDetail" asp-action="Index" asp-route-id="@Model.CourseId"  >Detail</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+}

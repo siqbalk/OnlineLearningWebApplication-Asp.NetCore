@@ -1,0 +1,46 @@
+﻿@model AcademicApplication.Areas.Admin.ViewModels.SubjectCreateViewModel
+
+
+@{
+    ViewData["Title"] = "SubjectCreate";
+}
+
+<section class="content-header">
+    <h1>
+        Subject Create
+        <small>Form</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Forms</a></li>
+        <li class="active">Subject Create</li>
+    </ol>
+</section>
+
+<div class="box box-primary">
+    <!-- /.box-header -->
+    <!-- form start -->
+    <form role="form" asp-area="Admin" asp-controller="SubjectList" asp-action="SubjectCreate"
+          method="post" id="FormCreate">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger small text-uppercase" })
+
+
+        <div class="form-group">
+            <label asp-for="SubjectName" for="exampleInputEmail1">Enter SubjectName</label>
+            <input asp-for="SubjectName" type="text" class="form-control" id="exampleInputEmail1" placeholder="Subject Name">
+            <span asp-validation-for="SubjectName"></span>
+        </div>
+
+        <!-- /.box-body -->
+
+        <div class="box-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-danger">Reset</button>
+        </div>
+    </form>
+</div>
+
+
+
+

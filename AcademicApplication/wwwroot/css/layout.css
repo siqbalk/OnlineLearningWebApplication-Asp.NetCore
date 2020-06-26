@@ -1,0 +1,22 @@
+﻿body {
+
+}
+
+#cart {
+    position: absolute;
+    top: 8%;
+    font-size: 60%;
+    padding: .3em;
+    border-radius: 70%;
+    line-height: 1.6em;
+    color: white;
+    background: rgba(255,0,0,.85);
+    text-align: center;
+    min-width: 2.2em;
+}
+
+#logo {
+    position: absolute;
+    top: 8%;
+    left: 6.3%;
+}

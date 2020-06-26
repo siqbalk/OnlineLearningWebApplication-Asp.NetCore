@@ -1,0 +1,23 @@
+﻿@model IEnumerable<AcademicApplication.ViewModels.CartListViewModel>
+@{
+    Layout = null;
+}
+<link href="~/css/Dashboard_subjectListcard.css" rel="stylesheet" />
+
+@if (Model == null)
+{
+    <div class="alert alert-warning">
+        Empty data found..
+    </div>
+}
+else
+{
+    <a class="nav-link" asp-area="User" asp-controller="CartList" asp-action="Index">
+        <i class="fa fa-cart-plus" style="font-size:20px;color:white">
+        </i>
+    </a>
+    <span class="badge" id="cart" style="color:white;right:783px;margin-top:55px;border-radius:50px;">@Model.Count()</span>
+}
+
+
+
